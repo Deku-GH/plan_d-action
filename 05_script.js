@@ -27,6 +27,7 @@ let moyenne_12 = etudiants.filter(etudiant => etudiant.moyenne >= 12)
 console.log(moyenne_12);
 
 
+console.log("================================");
 
 
 const  joueurs = [
