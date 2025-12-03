@@ -22,8 +22,8 @@ const  etudiants = [
     }
    ,{
         moyenne  :10,
-        name : "mohammed"
+        name : "ahmmed"
     }
    ,
 ]
-  console.log(etudiants.sort((a, b) => a.moyenne-b.moyenne));
+  console.log(etudiants.sort((a,b) => a.moyenne - b.moyenne ));

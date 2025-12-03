@@ -4,12 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Document</title>
 </head>
 
 <body>
 
-    <script src="08_script.js">
+
+    <section class="row">
+        <aside class="col-4 bg-black vh-100 p-3">
+            <div>
+                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" data-bs-whatever="@mdo">AJOUTE</button>
+
+            </div>
+            <div>
+                <button id="sort" class="sort btn btn-secondary w-100 mt-3">
+                           sort
+                </button>
+            </div>
+            <div class="mt-3">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn  btn-success" type="submit">Search</button>
+                </form>
+            </div>
+            <div>
+                <div  id="contenaire_carte" class="card w-75 text-center mt-3 ms-5">
+                    
+                </div>
+            </div>
+
+        </aside>
+        <section class="col-8 bg-primary vh-100">
+
+        </section>
+
+    </section>
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary-subtle">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-danger fs-4 ">
+                    <form name="ajoute_contact" action="" class="form_info">
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Fullname:</label>
+                            <input type="text" class="form-control" name="fullname" id="fullname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">email:</label>
+                            <input type="email" class="form-control" name="email" id="email"></input>
+                        </div>
+                        <div>
+                            <label for="email" class="col-form-label">telephone:</label>
+                            <input type="number" class="form-control" name="telephone" id="telephone">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="scriptporject.js">
 
     </script>
 </body>
