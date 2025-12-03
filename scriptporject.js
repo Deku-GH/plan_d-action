@@ -1,11 +1,11 @@
-  let contacts = [];
+let contacts = [];
 
 
 
 
 document.forms["ajoute_contact"].addEventListener("submit", (even) => {
     even.preventDefault();
-  
+
     let form = even.target;
     let contact = {
         fullname: form.fullname.value,
@@ -18,13 +18,13 @@ document.forms["ajoute_contact"].addEventListener("submit", (even) => {
 
 })
 
-function rendercard(contacts) {
+function rendercard() {
 
     let card = document.getElementById("contenaire_carte");
-    card.innerHTML = "" 
+    card.innerHTML = ""
     contacts.forEach(contact => {
-                 
-         
+
+
 
         let cardbody = `  
                      <div class=" card_item card-body pt-3">
@@ -33,22 +33,25 @@ function rendercard(contacts) {
                         <p class="card-text">${contact.telephone}</p>
                         <div>
                              <button class="btn delite_btn btn-danger">Delite</button>
-                        <button class="btn_EDITE btn btn-primary">Edite</button>
+                          <button type="button" class="btn_edite btn btn-primary w-100" data-bs-toggle="modal"
+                     data-bs-target="#btn_edite" >edite</button>
                         </div>                      
                     </div> `
         card.innerHTML += cardbody
     })
 
-    let btn_delete = document.querySelectorAll(".delite_btn").forEach((btn, index) => {
+    let btn_delete = document.querySelectorAll(".delite_btn").forEach((btn, deleteindex) => {
         btn.addEventListener('click', (E) => {
-            Deletecard(index);
+            Deletecard(deleteindex);
         })
 
     })
 
-    let btn_EDITE = document.querySelectorAll(".btn_EDITE").forEach((btn, index) => {
+    let btn_EDITE = document.querySelectorAll(".btn_edite").forEach((btn, editindex) => {
         btn.addEventListener("click", (e) => {
-            editelescard(index)
+            console.log("hi you here");
+            
+            editelescard(editindex)
         })
     })
 
@@ -65,15 +68,43 @@ function Deletecard(index) {
 }
 
 
-function sortalphabitik(contacts){
-      console.log(contacts);
-      
-    contacts.sort((a,b)=>a.fullname.localeCompare(b.fullname))
-    rendercard(contacts)
+function sortalphabitik(contacts) {
+    console.log(contacts);
+
+    contacts.sort((a, b) => a.fullname.localeCompare(b.fullname))
+    rendercard()
 }
 
 
-document.getElementById('sort').addEventListener("click",()=>{
-   sortalphabitik();
+document.getElementById('sort').addEventListener("click", () => {
+    sortalphabitik();
 
 })
+
+
+function  editelescard(index){
+    let card =contacts[index];
+    console.log(card);
+    
+
+    document.forms["btn_edite"].fullname.value= card.fullname
+    document.forms["btn_edite"].email.value= card.Email
+    document.forms["btn_edite"].telephone.value= card.telephone
+
+
+
+document.forms["btn_edite"].addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let form = e.target;
+
+    contacts[index] = {
+        fullname: form.fullname.value,
+        email: form.email.value,
+        telephone: form.telephone.value
+    };
+
+    rendercard();
+});
+}
+
