@@ -68,7 +68,7 @@ function Deletecard(index) {
 }
 
 
-function sortalphabitik(contacts) {
+function sortalphabitik() {
     console.log(contacts);
 
     contacts.sort((a, b) => a.fullname.localeCompare(b.fullname))
